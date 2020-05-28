@@ -2,7 +2,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 let N = 1000; // population size
-let p = 1 // probability of contracting disease from an encounter with an infected person
+let p = 0.25 // probability of contracting disease from an encounter with an infected person
 let radius = 5;
 
 let people = [];
