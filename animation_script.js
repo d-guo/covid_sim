@@ -4,6 +4,7 @@ let height = window.innerHeight;
 let N = 1000; // population size
 let p = 0.25 // probability of contracting disease from an encounter with an infected person
 let radius = 5;
+let infectionProneRadius = 5; // radius of people being able to contract the disease from an infected person
 
 let people = [];
 
@@ -24,6 +25,10 @@ function init() {
         people.push(new Person("uninfected", Math.floor(Math.random() * width), Math.floor(Math.random() * height)));
     }
     anim();
+}
+
+function inProximity(p1, p2) {
+    return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) < infectionProneRadius * infectionProneRadius;
 }
 
 let i = 0
@@ -54,7 +59,7 @@ function anim() {
             continue;
         }
         for (let k = 0; k < N; k++) {
-            if((Math.abs(people[k].x - people[j].x) < 5 && Math.abs(people[k].y - people[j].y) < 5) && people[k].health_status == "infected") {
+            if(inProximity(people[j], people[k]) && people[k].health_status == "infected") {
                 people[j].health_status = Math.random() < p ? "infected" : "uninfected";
                 continue;
             }
