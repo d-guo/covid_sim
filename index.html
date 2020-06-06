@@ -2,16 +2,28 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="styles.css">
-  <title> Epidemic Simulation </title>
+    <link rel="stylesheet" href="styles.css">
+    <title> Epidemic Simulation </title>
 </head>
 
 <body>
-  <div id="container">
-  <canvas id="cw"></canvas>
-  </div>
+    <div class="left_split">
+        <form id="form">
+            <label for="fname">N (population size):</label><br>
+            <input type="number" id="pop_size" name="pop_size" placeholder="ex. 1000">
 
-  <script src='animation_script.js'> </script>
+
+            <input type="submit" value="start sim!">
+        </form>
+    </div>
+
+
+    <div class="right_split">
+        <canvas id="cw"></canvas>
+    </div>
+
+    <script src='animation_script.js'>
+    </script>
 </body>
 
 </html>

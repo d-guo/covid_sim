@@ -1,14 +1,4 @@
-let width = window.innerWidth;
-let height = window.innerHeight;
-
-let N = 1000; // population size
-let p = 0.25 // probability of contracting disease from an encounter with an infected person
-let radius = 5;
-let infectionProneRadius = 5; // radius of people being able to contract the disease from an infected person
-
-let people = [];
-
-class Person {
+class node {
     constructor(infected_status, x, y) {
         this.health_status = infected_status;
         this.x = x;
@@ -18,7 +8,16 @@ class Person {
 
 // initialize population of person objects
 function init() {
-    //N = document.getElementById("pop_size").value
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    form_elements = document.getElementById("form")
+
+    let N = form_elements["pop_size"].value; // population size
+    let p = 0.25 // probability of contracting disease from an encounter with an infected person
+    let radius = 5;
+    let infectionProneRadius = 5; // radius of people being able to contract the disease from an infected person
+
     let canvas = document.getElementById("cw");
     let ctx = canvas.getContext("2d");
     people.push(new Person("infected", Math.floor(Math.random() * width), Math.floor(Math.random() * height)));
@@ -26,10 +25,6 @@ function init() {
         people.push(new Person("uninfected", Math.floor(Math.random() * width), Math.floor(Math.random() * height)));
     }
     anim();
-}
-
-function inProximity(p1, p2) {
-    return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) < infectionProneRadius * infectionProneRadius;
 }
 
 let i = 0
