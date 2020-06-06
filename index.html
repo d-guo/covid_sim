@@ -2,16 +2,33 @@
 <html lang="en">
 
 <head>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <title> Epidemic Simulation </title>
 </head>
 
 <body>
     <div class="left_split">
+        <h2> Epidemic Simulation </h2>
         <form id="form">
-            <label for="fname">N (population size):</label><br>
-            <input type="number" id="pop_size" name="pop_size" placeholder="ex. 1000">
+            <label for="pop_size">N (population size):</label><br>
+            <input type="number" id="pop_size" name="pop_size" placeholder="ex. 1000"><br>
 
+            <p>Choose a Random Graph:</p>
+            <input type="radio" id="g1" name="graph">
+            <label for="male">$G(n, \frac{1}{n^{1.1}})$</label><br>
+            <input type="radio" id="g2" name="graph">
+            <label for="female">$G(n, \frac{1}{n})$</label><br>
+            <input type="radio" id="g3" name="graph">
+            <label for="other">$G(n, \frac{4}{n})$</label><br><br>
+            <input type="radio" id="g4" name="graph">
+            <label for="other">$G(n, \frac{\log(n)}{n})$</label><br><br>
 
             <input type="submit" value="start sim!">
         </form>
